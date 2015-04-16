@@ -4,7 +4,11 @@ class LocksController < ApplicationController
   # GET /locks
   # GET /locks.json
   def index
-    @locks = Lock.where("user_id="+current_user.id.to_s)
+    if current_user
+      @locks = Lock.where("user_id="+current_user.id.to_s)
+    else
+      @locks = Lock.all
+    end
   end
 
   # GET /locks/1
