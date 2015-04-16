@@ -4,7 +4,7 @@ class LocksController < ApplicationController
   # GET /locks
   # GET /locks.json
   def index
-    @locks = Lock.all
+    @locks = Lock.where("user_id="+current_user.id.to_s)
   end
 
   # GET /locks/1
@@ -25,6 +25,7 @@ class LocksController < ApplicationController
   # POST /locks.json
   def create
     @lock = Lock.new(lock_params)
+    @lock.user_id = current_user.id
 
     respond_to do |format|
       if @lock.save

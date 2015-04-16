@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>SmartLock</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -61,6 +62,7 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 	<%= yield %>
+
 </div>
 </div>
 </div>
