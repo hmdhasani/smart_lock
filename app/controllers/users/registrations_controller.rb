@@ -7,6 +7,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
      super
    end
 
+   def get_phone
+    render :text => "salam", :layout => false
+   end
+
   # POST /resource
   # def create
   #   super

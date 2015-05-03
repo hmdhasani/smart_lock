@@ -20,13 +20,11 @@
         <td><%= lock.state %></td>
         <td><%=l lock.created_at %></td>
         <td>
+          <span>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_lock_path(lock), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      lock_path(lock),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+                      edit_lock_path(lock), :class => 'btn btn-default btn-xs', :style=>'float:left;margin-right:5px' %>
+                      <%= button_to "delete", lock, :method=>:delete, :class=>'btn btn-danger btn-xs' %>
+                    </span>
         </td>
       </tr>
     <% end %>

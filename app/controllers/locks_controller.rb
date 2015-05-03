@@ -11,6 +11,10 @@ class LocksController < ApplicationController
     end
   end
 
+  def get_phone
+    render :text => "+989357672941", :layout => false
+   end
+
   # GET /locks/1
   # GET /locks/1.json
   def show
@@ -29,7 +33,11 @@ class LocksController < ApplicationController
   # POST /locks.json
   def create
     @lock = Lock.new(lock_params)
-    @lock.user_id = current_user.id
+    if current_user
+      @lock.user_id = current_user.id
+    else
+      @lock.user_id = 0
+    end
 
     respond_to do |format|
       if @lock.save

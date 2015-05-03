@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'motions/remote_motion/add' => 'motions#remote_motion'
+  get 'get_phone' => 'locks#get_phone'
   resources :motions
 
   devise_for :users
