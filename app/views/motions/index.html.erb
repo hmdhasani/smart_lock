@@ -1,4 +1,5 @@
 <%- model_class = Motion -%>
+<div class="well">
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -34,3 +35,4 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_motion_path,
             :class => 'btn btn-primary' %>
+</div>

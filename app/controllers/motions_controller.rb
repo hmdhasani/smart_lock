@@ -5,7 +5,7 @@ class MotionsController < ApplicationController
 
   def remote_motion
     @motion = Motion.create(:lock_id=>params[:lock_id])
-    render :layout => false
+    redirect_to action: "index"
   end
 
   def index

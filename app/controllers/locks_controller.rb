@@ -12,7 +12,18 @@ class LocksController < ApplicationController
   end
 
   def get_phone
-    render :text => "+989357672941", :layout => false
+    @lock = Lock.where(:id => params[:lock_id]).first
+    if @lock == nil
+          render :text => "", :layout => false
+          return
+    end
+    @user = User.where(:id => @lock.user_id).first
+    if @user == nil
+          render :text => "", :layout => false
+          return
+    end
+    #Lock.joins(:store => :retailer).where(stores: {retailer: {id: 2}})
+    render :text => @user.phone, :layout => false
    end
 
   # GET /locks/1
