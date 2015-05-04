@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   get 'motions/remote_motion/add' => 'motions#remote_motion'
   get 'get_phone' => 'locks#get_phone'
   resources :motions
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :locks
 
-  root :to => redirect('/locks')
+  root :to => redirect('/home/index')
 
   #devise_for :users, controllers: {
   #sessions: 'sessions'

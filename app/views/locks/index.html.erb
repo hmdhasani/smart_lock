@@ -7,9 +7,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:serial) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,16 +16,13 @@
   <tbody>
     <% @locks.each do |lock| %>
       <tr>
-        <td><%= link_to lock.id, lock_path(lock) %></td>
+        <td><%= lock.serial %></td>
         <td><%= lock.name %></td>
-        <td><%= lock.state %></td>
         <td><%=l lock.created_at %></td>
         <td>
-          <span>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_lock_path(lock), :class => 'btn btn-default btn-xs', :style=>'float:left;margin-right:5px' %>
-                      <%= button_to "delete", lock, :method=>:delete, :class=>'btn btn-danger btn-xs' %>
-                    </span>
+                      edit_lock_path(lock), :class => 'btn btn-info btn-xs', :style=>'float:left;margin:0px' %>
+                      <%= button_to "delete", lock, :method=>:delete, :class=>'btn btn-danger btn-xs' ,:style=>'margin:0px 10px' %>
         </td>
       </tr>
     <% end %>

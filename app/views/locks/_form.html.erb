@@ -15,6 +15,13 @@
     </div>
   <% end %>
 
+ <div class="control-group">
+    <%= f.label :serial, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :serial, :class => 'form-control' %>
+    </div>
+    <%= error_span(@lock[:serial]) %>
+  </div>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -22,14 +29,8 @@
     </div>
     <%= error_span(@lock[:name]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :state, :class => 'form-control' %>
-    </div>
-    <%= error_span(@lock[:state]) %>
-  </div>
-
+  
+  <br/>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

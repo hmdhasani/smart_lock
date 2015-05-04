@@ -17,7 +17,7 @@ class LocksController < ApplicationController
       render :text => "+989357672941", :layout => false
       return
     end
-    @lock = Lock.where(:id => params[:lock_id]).first
+    @lock = Lock.where(:serial => params[:lock_id]).first
     if @lock == nil
           render :text => "", :layout => false
           return
@@ -98,6 +98,6 @@ class LocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lock_params
-      params.require(:lock).permit(:name, :state)
+      params.require(:lock).permit(:name, :serial)
     end
 end
