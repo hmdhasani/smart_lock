@@ -13,7 +13,7 @@ class LocksController < ApplicationController
 
   def get_phone
     if params[:lock_id] == "0"
-      render :text => "+9357672941", :layout => false
+      render :text => "+989357672941", :layout => false
       return
     end
     @lock = Lock.where(:id => params[:lock_id]).first
