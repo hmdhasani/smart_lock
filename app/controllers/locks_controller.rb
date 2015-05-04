@@ -1,4 +1,5 @@
 class LocksController < ApplicationController
+  skip_before_action :authenticate_user!, only: :get_phone
   before_action :set_lock, only: [:show, :edit, :update, :destroy]
 
   # GET /locks

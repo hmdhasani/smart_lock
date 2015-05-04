@@ -1,4 +1,5 @@
 class MotionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :remote_motion
   before_action :set_motion, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
